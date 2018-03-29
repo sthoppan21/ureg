@@ -1,0 +1,140 @@
+
+    <h1 [class.blue-title]="titleclass">Registration Form</h1>
+    <form name = "f" #validateForm="ngForm" novalidate> 
+           
+  <div>
+      <div>
+            <label for="Salutation">Salutation</label>
+            <select id="Salutation" name="Salutation" required>
+                                <option value="-1">Select Salutation</option>
+                                <option value="1">Mr</option>
+                                <option value="2">Ms</option>
+                            </select>
+                                </div>
+        <div>
+            <label for="firstName" class="required1">First Name</label>
+            <input type="text"  name="firstName" #firstName="ngModel" ngModel pattern="[a-zA-Z ]*" required />
+        </div>
+       <div> 
+            <label for="MiddleName">Middle Name</label>
+            <input type="text" name="MiddleName" #MiddleName="ngModel" ngModel pattern="[a-zA-Z ]*"/>
+        </div>
+        <div>
+            <label for="Surnam" class="required1">Surname</label>
+            <input type="text" name="Surnam" #Surnam="ngModel" ngModel pattern="[a-zA-Z ]*" required />
+            </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" #age="ngModel" ngModel/>             
+        </div>
+        <div>
+            <label for="dob" class="required1">Date of Birth:</label>
+            <input type="date" placeholder="Enter date of birth(MM/dd/yyyy)" name="dob" #dob="ngModel" ngModel required/></div>
+         <div>
+            <label for="Address1"class="required1">Address Line 1</label>
+            <input type="text" name="Address1" #Address1="ngModel" ngModel required />
+        </div>
+        <div>
+            <label for="Address2">Address Line 2</label>
+            <input type="text" name="Address2" #Address2="ngModel" ngModel/>
+        </div>
+        <div>
+                <label for="State"class="required1">State</label>
+                <input type="text"  name="State" placeholder="Enter Indian State" #State="ngModel" ngModel required />
+        </div>
+        <div>
+            <label for="Pincode"class="required1">Pincode</label>
+            <input type="text" id="Pincode"
+                    required
+                    #Pincode="ngModel" ngModel name="Pincode"
+                    pattern="[0-9]*" placeholder="Enter your Pincode(6 digits)"
+                    minlength="6"
+                    maxlength="6" 
+                    #Pincode="ngModel">
+                    <div *ngIf="Pincode.valid || Pincode.pristine"
+                       class="alert alert-danger">
+                       <div *ngIf="Pincode.hasError('minlength')">Pincode should be 6digit</div>
+                       <div *ngIf="Pincode.hasError('required')">Pincode is required</div>
+                       <div *ngIf="Pincode.hasError('pattern')">Pincode should be only numbers</div>
+        </div>
+        </div>
+        <div>
+            <label for="Email"class="required1">Email</label>
+            <input type="email" name="email" #email='ngModel' ngModel placeholder= "Enter Email Id"required
+             pattern='([a-zA-Z0-9\-\_\"]+)([\_\.\-\+{1}])?([a-zA-Z0-9\-\"\_]+)\@([a-zA-Z0-9\[]+)([\-])?([a-zA-Z0-9]+)?([\.])([a-zA-Z0-9\.\]]+)$'>
+            </div>
+            <div>
+                <label for="mobilenumber" class="required1">Phone Number</label>
+                <input type="text" id="mobilenumber"
+                    required
+                    #mobilenumber="ngModel" ngModel name="mobilenumber"
+                    placeholder="You can enter only 10 digits"
+                    pattern="[0-9]*"
+                    minlength="10"
+                    maxlength="10" 
+                    #mobilenumber="ngModel">
+                   <div *ngIf="mobilenumber.valid || mobilenumber.pristine"
+                       class="alert alert-danger">
+                       <div *ngIf="mobilenumber.hasError('minlength')">Mobile should be 10digit</div>
+                       <div *ngIf="mobilenumber.hasError('required')">Mobile is required</div>
+                       <div *ngIf="mobilenumber.hasError('pattern')">Mobile number should be only numbers</div>
+                    </div>
+                    </div>  
+    <errors [control]="validateForm"></errors>
+  <button type="submit" class="btn btn-primary" [disabled]="validateForm.invalid" (click)="checkage()">save</button>
+</div>
+  
+</form><form>
+    <div>   <h3>Age Greater Than 18</h3>  
+    <table>
+        <tr>
+            <th>Surname</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Age</th>
+            <th>Address Line1</th>
+            <th>Address Line2</th>
+            <th>State</th>
+            <th>Pincode</th> 
+            <th>Email</th> 
+            <th>Phonenumber</th> 
+        </tr>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{Surnam.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{firstName.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{MiddleName.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{age.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{Address1.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{Address2.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{State.value}} </td>  
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{Pincode.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{email.value}}</td>
+            <td *ngIf="age1!=0 && age1>0 && age1 > 18">{{mobilenumber.value}}</td>
+    </table></div></form>
+<form><div>
+<h3>Age Less Than 18</h3>
+  <table>   
+        <tr>
+                <th>Surname</th>
+                <th>First Name</th> 
+                <th>Middle Name</th>
+                <th>Age</th> 
+                <th>Address Line1</th>
+                <th>Address Line2</th> 
+                <th>State</th>
+                <th>Pincode</th> 
+                <th>Email</th>
+                <th>Phonenumber</th> 
+        </tr>               
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{Surnam.value}}</td>
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{firstName.value}}</td>   
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{MiddleName.value}}</td>
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{age.value}}</td>   
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{Address1.value}}</td>
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{Address2.value}}</td>   
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{State.value}}</td>
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{Pincode.value}}</td>   
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{email.value}}</td>
+                <td *ngIf="age1!=0 && age1>=1 && age1 < 18">{{mobilenumber.value}}</td>   
+    
+   </table></div></form>
+   

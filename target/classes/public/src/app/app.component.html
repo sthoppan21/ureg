@@ -1,0 +1,72 @@
+<!--<h1>Registration Form</h1><!-->
+<form name="xxx" #validateForm="ngForm" (ngSubmit)="register(validateForm)" countryCity telephoneNumbers novalidate>
+<!--  <p> Is "validateForm" valid? {{(validateForm.valid?'Yes':'No')}} </p> -->
+<router-outlet></router-outlet>
+<a routerLink="/registration" routerLinkActive="active">Register</a>
+
+<!--<div><!--class="col-xs-12 col-sm-4 col-md-4 form-group">-->
+ <!-- <label for="Salutation">Salutation</label>
+  <select id="Salutation" name="Salutation" required>
+                      <option value="-1">Select Salutation</option>
+                      <option value="1">Mr</option>
+                      <option value="2">Miss</option>
+                  </select>
+                      </div>
+<div><!-- class="col-sm-12 form-group">-->
+<!--  <label for="firstName">First Name</label>
+  <input type="text" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
+  <div *ngIf="f.submitted && !firstName.valid" >First Name is required</div>
+</div>-->
+
+ <!-- <div>
+    <label>Name</label>
+    <input type="text" name="name" #name="ngModel" ngModel required>
+    <errors [control]="name"></errors>
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="text" name="email" #email="ngModel" ngModel required email-validate>
+    <errors [control]="email"></errors>
+  </div>
+  <div>
+    <label>Age</label>
+    <input type="number" name="age" #age="ngModel" ngModel required> 
+    
+  </div>
+
+  <label for="dob">Date of Birth:</label>
+  <input type="date" placeholder="Enter date of birth" name="dob" ngModel required>
+
+  <errors [control]="validateForm"></errors>
+
+  <!--<pre>{{validateForm.value | json}}</pre>-->
+  <!--<button type="submit" [disabled]="validateForm.invalid">Submit</button>-->
+ <!-- <button type="submit" name="r1" (click)= "checkage(age)">save</button>
+
+  <div>
+    <div class="grid-item">      
+            <h3>Age greater than 18</h3>            
+              <label>Name:</label><div *ngIf="age1!=0 && age1>0 && age1 > 18">{{name.value}}</div>        
+              <label>Email:</label><div *ngIf="age1!=0 && age1>0 && age1 > 18">{{email.value}}</div>        
+    </div>   
+   <div class="grid-item">      
+          <h3>Age less than 18</h3>
+          <div>
+              <label>Name:</label><div *ngIf="age1!=0 && age1>=1 && age1 < 18">{{name.value}}</div>        
+              <label>Email:</label><div *ngIf="age1!=0 && age1>=1 && age1 < 18">{{email.value}}</div>        
+          </div>
+    </div>
+   </div>
+
+  <!--<ng-template [ngTemplateOutlet]="loadTemplate(age)"></ng-template>
+
+    <ng-template #readOnlyTemplate>
+        <h1>chellam</h1>
+    </ng-template>
+
+    <ng-template #editTemplate>
+        <h1>kuttima</h1>
+    </ng-template>-->
+
+</form>
+
